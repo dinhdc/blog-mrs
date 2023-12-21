@@ -21,7 +21,7 @@ app.post('/posts', async (req, res) => {
         id, title
     }
 
-    await axios.post('http://localhost:4005/events', {
+    await axios.post('http://event-bus-srv:4005/events', {
         type: 'PostCreated',
         data: {
             id, title
@@ -33,10 +33,10 @@ app.post('/posts', async (req, res) => {
 
 app.post('/events', (req, res) => {
     console.log('Receive Event: ', req.body)
-
     res.send({})
 })
 
 app.listen(4000, () => {
+    console.log('new version v1.0.0')
     console.log('Post services run on port 4000')
 })
